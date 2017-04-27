@@ -2,7 +2,7 @@
 
 Name:           libtxc_dxtn
 Version:        1.0.1
-Release:        1.git%{commit}%{?dist}
+Release:        2.git%{commit}%{?dist}
 Epoch:          1
 Summary:        Free implementation of the s3tc texture compression algorithm
 
@@ -41,6 +41,10 @@ rm -fr %{buildroot}/%{_includedir}
 %{_libdir}/*.so
 
 %changelog
+
+* Thu Apr 27 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 1:1.0.1-2.gitef072983
+- Rebuilt
+
 * Sun Feb 07 2016 Sérgio Basto <sergio@serjux.com> - 1:1.0.1-1.gitef072983
 - Fix Source0 URL.
 - Clean some trailing white spaces.
