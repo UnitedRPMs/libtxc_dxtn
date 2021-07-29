@@ -1,14 +1,12 @@
-%define         commit ef072983
-
 Name:           libtxc_dxtn
 Version:        1.0.1
-Release:        3.git%{commit}%{?dist}
+Release:        4%{?dist}
 Epoch:          1
 Summary:        Free implementation of the s3tc texture compression algorithm
 
 License:        BSD
-URL:            http://cgit.freedesktop.org/~mareko/%{name}/
-Source0:        http://cgit.freedesktop.org/~mareko/%{name}/snapshot/%{name}-%{commit}.tar.bz2#/%{name}-%{version}-git%{commit}.tar.bz2
+URL:            http://dri.freedesktop.org/wiki/S3TC
+Source0:        http://people.freedesktop.org/~cbrill/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRequires:  autoconf
 BuildRequires:  automake
@@ -19,7 +17,7 @@ BuildRequires:  mesa-libGL-devel
 Free implementation of the s3tc texture compression algorithm.
 
 %prep
-%setup -q -n %{name}-%{commit}
+%autosetup -n %{name}-%{version}
 sed -i -e 's|pixerrorcolorbest\[3\]|pixerrorcolorbest[3]={0,0,0}|g' txc_compress_dxtn.c
 sed -i -e 's|GLshort alphatest\[2\]|GLshort alphatest[2]={0,0}|g' txc_compress_dxtn.c
 
@@ -41,6 +39,9 @@ rm -fr %{buildroot}/%{_includedir}
 %{_libdir}/*.so
 
 %changelog
+
+* Wed Jul 28 2021 David Va <davidva AT tuta DOT io> - 1:1.0.1-4
+- Rebuilt
 
 * Sun Sep 01 2019 David Va <davidva AT tuta DOT io> - 1:1.0.1-3.gitef072983
 - Rebuilt
